@@ -47,12 +47,14 @@
     const button = document.getElementById("start-button");
     const scene = document.querySelector("#mindar-scene");
 
-    button.addEventListener("click", async () => {
-      button.style.display = "none";
-      scene.style.display = "block";
+    scene.addEventListener("loaded", () => {
+      button.addEventListener("click", async () => {
+        button.style.display = "none";
+        scene.style.display = "block";
 
-      // Aguarda a cena carregar e inicia o MindAR manualmente
-      await scene.components["mindar-image"].start();
+        // Aguarda o mindar-image estar disponível
+        await scene.components["mindar-image"].start();
+      });
     });
   </script>
 </body>
