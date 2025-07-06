@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Projeto AR com MindAR</title>
+  <script src="https://cdn.jsdelivr.net/npm/aframe@1.2.0/dist/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-aframe.prod.js"></script>
+  <style>body { margin: 0; overflow: hidden; }</style>
+</head>
+<body>
+  <a-scene mindar-image="imageTargetSrc: ./targets/marcador.mind;" embedded color-space="sRGB" renderer="colorManagement: true;">
+
+    <a-assets>
+      <a-asset-item id="modelo3d" src="modelo.glb"></a-asset-item>
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="false"></a-camera>
+
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-gltf-model src="#modelo3d" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 0 0"></a-gltf-model>
+    </a-entity>
+
+  </a-scene>
+</body>
+</html>
